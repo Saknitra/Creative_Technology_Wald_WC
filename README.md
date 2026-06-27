@@ -11,7 +11,7 @@ Auf der Polenta 7000-Wiese in Chur verwandelt das immersive Wald-WC den alltägl
 
 Schritt-für-Schritt-Anleitung für den Aufbau und die Installation, des Wald-WCs.
 
-[Komponentenplan](Komponentenplan\Komponentenplan_v02.png)
+[Komponentenplan](Komponentenplan\Komponentenplan_v03.png)
 
 Überprüfe, ob du alle Teile der Materialliste (Komponentenplan\Materialliste.md) beisammen hast, bevor du mit dem Aufbau und der Installation beginnst.
 
