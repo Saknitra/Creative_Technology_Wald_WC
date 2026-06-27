@@ -65,10 +65,10 @@ Für das Sounddesign experimentierten wir anfangs mit verschiedenen Programmen w
 Die grösste Herausforderung im Projektverlauf war der Faktor Zeit. Da keines der Teammitglieder zuvor ein Projekt in diesem Umfang realisiert hatte, unterschätzten wir anfangs die steile Lernkurve. Es brauchte viel Zeit und tiefgehende Recherche, um herauszufinden, wie die komplexen Komponenten im Bereich Physical Computing – insbesondere das Zusammenspiel aus Sensoren, Aktoren, Netzteilen und Mikrocontrollern – fehlerfrei miteinander kommunizieren und verkabelt werden müssen.
 
 3. Task Distribution
-Programmierung und Design der Lichtinstallation (TouchDesigner): Andrin und Len
-Audiotechnik und Sounddesign (Adobe Audition): Jule
-Physischer Aufbau und Hardware-Zusammenstellung: Alle Teammitglieder gemeinsam
-Dokumentation und Videoschnitt: Sara
+- Programmierung und Design der Lichtinstallation (TouchDesigner): Andrin und Len
+- Audiotechnik und Sounddesign (Adobe Audition): Jule
+- Physischer Aufbau und Hardware-Zusammenstellung: Alle Teammitglieder gemeinsam
+- Dokumentation und Videoproduktion: Sara
 
 4. Learning Effect
 Da fast alle Disziplinen dieses Projekts Neuland für uns waren, war der Lerneffekt enorm. Wir haben uns intensiv in die visuelle Entwicklungsumgebung von TouchDesigner eingearbeitet. Den grössten Fortschritt erzielten wir jedoch im Selbststudium direkt an der Hardware: Wir haben grundlegendes Wissen über Elektronik erworben und gelernt, wie Spannungen umgewandelt werden, wie Audiosignale sauber fliessen und wie man eine stabile Brücke zwischen physischer Sensorik und digitaler Kunst baut.
