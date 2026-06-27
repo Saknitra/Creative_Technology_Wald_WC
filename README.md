@@ -1,7 +1,5 @@
 # Creative_Technology_Wald_WC
 
-# Example Creative Technology Project
-
 ## About
 
 Auf der Polenta 7000-Wiese in Chur verwandelt das immersive Wald-WC den alltäglichen Toilettengang in eine multisensorische Natur-Oase. Beim Betreten der Kabine aktiviert ein smarter Türsensor automatisch ein atmosphärisches Setup aus grünen LED-Stripes, Raumklang-Lautsprechern mit authentischen Waldgeräuschen und künstlichem Efeu. Sobald man den Raum verlässt, schaltet sich die Installation ebenso dynamisch wieder ab.
@@ -11,63 +9,72 @@ Auf der Polenta 7000-Wiese in Chur verwandelt das immersive Wald-WC den alltägl
 
 ## Usage
 
-Comprehensible **step-by-step instructions** available for non-experts to replicate the project.
-including ...
+Schritt-für-Schritt-Anleitung für den Aufbau und die Installation, des Wald-WCs.
 
-- text
-- TouchDesigner version used
-- Screenshots / pictures / eg. GIFs
-- communication diagram -> shows the digital and haptic media components used, including software (eg. TouchDesigner, ...), hardware (eg. computer, sensor), communication (use of communication protocols, eg. OSC), etc.
+[Komponentenplan](Komponentenplan\Komponentenplan_v02.png)
 
-![Example communication diagram](gitimg/Komponentenplan.png)
-_Example communication diagram_
+Überprüfe, ob du alle Teile der Materialliste (Komponentenplan\Materialliste.md) beisammen hast, bevor du mit dem Aufbau und der Installation beginnst.
 
 1. Lichtinstallation
-Die TouchDesigner Datei muss heruntergeladen und geöffnet werden. Anschliessend werden die LED-Stripes an das Schaltnetzteil verbunden gemäss Foto: (Stimmt das auf dem Bild?)(Bilder_Aufbauanleitung\Anschluss_LED_Controller.jpeg)
-Anschliessend wird über die Anschlüsse (rotes Kabel) die Verbindung zum LED Controller gemacht. (Worauf achten und was womit verbinden?)
-Der Controller wird mit dem Strom verbunden, sowie über ein USB-Kabel mit dem Laptop. Auf TouchDesigner muss nun der richtige Eingang ausgewählt werden, sodass der Output auf die LED-Stripes gelegt wird und diese beginnen zu leuchten.
+Software vorbereiten: Lade die entsprechende TouchDesigner (TD)-Datei herunter und öffne sie auf dem Laptop.
+
+Stromversorgung verkabeln: Verbinde die LED-Stripes mit dem silbernen Schaltnetzteil (Stromversorgung LED). (s. Bild: Bilder_Aufbauanleitung\Anschluss_LED_Controller.jpeg)
+Worauf zu achten ist: An der Klemmenleiste des Schaltnetzteils liegt an den Anschlüssen (L, N) offene Netzspannung (230V) an. Diese Kontakte müssen im Betrieb unbedingt berührungssicher abgedeckt sein! Schließe die DC-Ausgänge (V+ und V-) mit ausreichend dicken Kabeln an die Stromadern des LED-Streifens an und stecke das Netzteil erst ein, wenn du alles verbunden hast.
+
+Signalverbindung herstellen: Führe die Datenleitungen des LED-Streifens (beschriftet mit DAT/Data und CLK/Clock) an die grünen Schraubklemmen des LED-Controllers (z. B. Port 1: DAT an DAT, GND an GND).
+
+Inbetriebnahme: Verbinde den LED-Controller per USB-Kabel mit dem Laptop und schließe ihn an den Strom an. Wähle in TouchDesigner den korrekten COM-Port (bzw. Ausgangs-CHOP/DAT) aus, damit die Pixeldaten korrekt an den Controller übertragen werden und die LEDs grün aufleuchten.
 
 2. Audioinstallation
-Die Amps müssen an den vier blauen Ausgängen mit den Plus und Minuspolen zweier Lautsprecher verbunden werden. Dies geht am Besten mit den Lautsprecherkabeln, die mit den Polen der Lautsprecher zusammengelötet wurden.
-Das graue Kabel wird mit dem USB-Multichannel Audio Interface verbunden.
-Anschliessend wird das Amp zusätzlich mit dem Strom versorgt, also an das Constant Voltage Device angeschlossen. (s. Anschlüsse im Bild: Bilder_Aufbauanleitung\Verbindung Amps.jpeg) Dieser Schritt mit den Verbindungen muss beim zweiten Amp wiederholt werden.
-Um die Lautsprecher noch lauter zu machen, wird ein Resonanzkörper an jeden Lautsprecher mit Tape befestigt (s. Bilder_Aufbauanleitung\Lautsprecher.jpeg). Dies wird für jeden Lautsprecher wiederholt.
-Bei der Installation der Boxen und der Technik muss darauf geachtet werden, ob die Lautsprecher beim USB-Multichannel Audio Interface beim Rear-Ausgang oder beim Front-Ausgang eingesteckt wurde, da diese anders angesprochen werden vom Audio und sonst auch vertauscht Geräusche ausgeben.
+Lautsprecher vorbereiten: Nimm vier lange (ca. 3 Meter) Abschnitte des Lautsprecherkabels, schneide die Abdichtung an den Enden ab und löte je ein Kabel an die Kontakte eines Lautsprechers.
+Um den Schalldruck der kleinen, nackten Lautsprecher-Chassis zu maximieren, befestige jeden Lautsprecher flach mit Tape auf einem Hohlkörper (z. B. einer Kartonbox), der als Resonanzkörper fungiert. Schaue dabei, dass du Löcher hast, wo das Kabel durchgeführt werden kann. (s. Bilder_Aufbauanleitung\Lautsprecher.jpeg)
+
+Verstärker (Amps) verkabeln: Schnappe dir die erste 2.1-Kanal-Verstärkerplatine (Amp). Schließe die Kabel der vorderen zwei Lautsprecher an die blauen Lautsprecher-Schraubklemmen (Speaker Out) an. Achte hierbei strikt auf die korrekte Polung (Plus an Plus, Minus an Minus), da die Boxen sonst phasenverschoben klingen.
+
+Audio-Eingang anschließen: Stecke das graue Audiokabel (mit dem kleinen weißen JST-Stecker) in den "Audio In"-Port der Verstärkerplatine. Das andere Ende des Kabels lötest du mit den Kontakten der RCA-Stecker zusammen (achte auf die Farben der Kabel und der Stecker) und führst sie zum Front-Ausgang des externen USB Multi-Channel Audio Interfaces.
+
+Stromversorgung (Constant Voltage Control Device): Verbinde die obere blaue Schraubklemme des Amps (Power In / DC) mit dem zentralen Netzteil (im Komponentenplan als Constant Voltage Control Device deklariert). Dieses liefert die benötigte Gleichspannung (z.B. 12V oder 24V).
+
+Zweites Amp-Modul: Wiederhole die letzten 3 Schritte exakt so für das zweite Amp-Modul und verbinde dessen Audio-Eingang mit dem Rear-Ausgang des USB-Audio-Interfaces.
+
+Wichtiger Hinweis zum Routing: Achte beim Platzieren der Boxen im Raum penibel darauf, welche Boxen am Front- und welche am Rear-Kanal hängen.
 
 3. Bewegungssensor
-Der Bewegungssensor wird mithilfe von Kabeln an die Steckplatine befestigt gemäss Bild (Bilder_Aufbauanleitung\Bewegunssensor_Anschluesse.jpeg).
-Anschliessend wird der ESP über ein USB-C Kabel mit dem Laptop verbunden und das Arduino-Programm raufgeladen. Somit sollte die Installation funktionieren und der Aufbau ist bereits vollständig.
+Hardware-Setup: Der PiR-Bewegungssensor v1.0 wird mithilfe von Jumper-Kabeln an die Steckplatine (Breadboard) und den ESP32C6-Microcontroller befestigt. (s. Bild: Bilder_Aufbauanleitung\Bewegunssensor_Anschluesse.jpeg)
 
-4. Installation
-Die Boxen werden in je eine Ecke des WCs aufgehängt. Die LED Streifen werden an den Wänden nach Belieben befestigt. Sie dürfen jedoch nicht auseinandergeschnitten werden. Der Bewegungssensor wird so installiert, dass er auf das WC zeigt, damit er möglichst verlässlich funktioniert. Um ihn zu verstecken, haben wir ihn auf der Box angeklebt und das Steckbrett mit dem ESP hinter der Box angeklebt. Das Ganze haben wir noch mit Fake-Efeu verziert und so konnten noch weitere Kabel versteckt werden. Dies kann nach Belieben ausgeführt werden.
+Firmware aufspielen: Anschließend den ESP über ein USB-C-Kabel mit dem Laptop verbinden, die Arduino IDE öffnen und das vorbereitete Programm () hineinkopieren und hochladen. Der Microcontroller sendet die Triggersignale bei Bewegung direkt an TouchDesigner, um die Installation zu aktivieren.
+
+4. Physische Rauminstallation
+Lautsprecher platzieren: Die Boxen werden in je eine Ecke des WCs aufgehängt (zwei vorne für Front, zwei hinten für Rear), um einen umschließenden Raumklang zu erzeugen.
+
+Licht montieren: Die LED-Streifen werden an den Wänden nach Belieben befestigt. Wichtig: Sie dürfen nicht auseinandergeschnitten werden, da sonst die Datenleitung unterbrochen wird.
+
+Technik tarnen: Der Bewegungssensor wird so installiert, dass er direkt in das WC auf die Schüssel zeigt, damit er möglichst verlässlich funktioniert. Um ihn und die Elektronik zu verstecken, haben wir den Sensor auf einer der Boxen angeklebt und das Steckbrett mit dem ESP hinter der Box befestigt.
+
+Dekoration: Das Ganze wurde mit künstlichem Efeu verziert. Das sorgt für die Wald-Atmosphäre und bietet die perfekte Möglichkeit, um lose Kabel, Netzteile und Platinen unsichtbar zu verlegen.
 
 ## Making process
 
-Information on ...
+1. Planning and Development
+Das Projekt begann ursprünglich mit einer völlig anderen Idee: einem digitalen System zum Getränke-Tracking. Während der Konzeptionierung stellten wir jedoch fest, dass ein solches System vor allem den Konsum fördern würde. Da uns Nachhaltigkeit und ein bewusster Umgang im Team sehr wichtig sind, verworfen wir diesen Ansatz und suchten nach einer Alternative.
+Bei einem Vorab-Besuch auf dem Gelände der Polenta 7000 fielen uns sofort die dortigen Kompost-WCs aus Holz auf. Das inspirierte uns zu dem Konzept, diese triste Umgebung in ein immersives „Wald-WC“ zu verwandeln. Für die Konzepteinreichung stand zudem die wichtige Bewertungsanforderung im Raum, die Installation interaktiv zu gestalten. So entstand die finale Idee: Das Wald-WC soll ein geschlossenes Ökosystem bilden, das sich erst dann dynamisch aktiviert, wenn die Kabine tatsächlich betreten und benutzt wird.
+Am ersten Testtag bauten wir einen Prototypen auf. Die Lichtinstallation funktionierte auf Anhieb und den Surround-Sound testeten wir zunächst erfolgreich mit großen, aktiven Studiolautsprechern, die noch keinen Lötaufwand erforderten. Da unsere maßgeschneiderten Verstärkerplatinen (Amps) am ersten Tag noch nicht geliefert worden waren, folgte der finale Zusammenbau des gesamten Elektronik-Setups am zweiten Projekttag.
+Für das Sounddesign experimentierten wir anfangs mit verschiedenen Programmen wie Ableton Live. Wir entschieden uns letztendlich jedoch für Adobe Audition. Da das Team dieses Programm bereits am besten kannte, uns das Interface sowie der Workflow am eingängigsten erschienen und wir bereits über die entsprechenden Lizenzen verfügten, war dies die effizienteste Wahl. Da unsere Installation über genau vier Lautsprecher verfügt, mischten wir den Ton in einem klassischen 5.1-Setup ab und ließen den Center-Kanal bewusst frei.
 
-- planning and development process
-- challenges, rejected solutions, failures and re-planning
-- task distribution (who did what?)
-- learning effect
-- tools (AI tools are expressly permitted and desired and should be mentioned)
-- known bugs, if there are any (-1)
+2. Challenges and Re-Planning
+Die größte Herausforderung im Projektverlauf war der Faktor Zeit. Da keines der Teammitglieder zuvor ein Projekt in diesem Umfang realisiert hatte, unterschätzten wir anfangs die steile Lernkurve. Es brauchte viel Zeit und tiefgehende Recherche, um herauszufinden, wie die komplexen Komponenten im Bereich Physical Computing – insbesondere das Zusammenspiel aus Sensoren, Aktoren, Netzteilen und Mikrocontrollern – fehlerfrei miteinander kommunizieren und verkabelt werden müssen.
 
-Anfangs andere Idee: Getränketracking, Idee ist nicht konsumsförderung, darum andere Idee. Polenta-Besuch: WC vielen auf  Wald WC. Konzepteinreichung: wie interaktiv machen? Das dann umgesetzt.
-Getestet mit Surround-Audio (richtige fette lautsprecher ohne Löten) und Licht (fotos), Heute 2. Tag (24.6.) weil Amps noch nicht da waren. 3D-Sound in Audition 5.1 Setup, aber 1 Spur leer, weil nur 4 Lautsprecher. Versch. Programme ausprobiert (Ableton), aber dann doch in Audition Audio gemacht. Audition am besten gekannt und am eingängigsten das Interface und Workflow, dann dort am Besten klar kommen und auch schon Lizenz, darum nicht Ableton.
-Jule machte Audio, die anderen Beiden (Andrin und Len) haben LED Stuff in TD gemacht. (Arbeitsteilung)
+3. Task Distribution
+Programmierung und Design der Lichtinstallation (TouchDesigner): Andrin und Len
+Audiotechnik und Sounddesign (Adobe Audition): Jule
+Physischer Aufbau und Hardware-Zusammenstellung: Alle Teammitglieder gemeinsam
+Dokumentation und Videoschnitt: Sara
 
-- challenges, rejected solutions, failures and re-planning
-Braucht viel mehr Zeit als gedacht und schwierig rauszufinden, wie machen, weil für alle das Erste mal sowas machen.
+4. Learning Effect
+Da fast alle Disziplinen dieses Projekts Neuland für uns waren, war der Lerneffekt enorm. Wir haben uns intensiv in die visuelle Entwicklungsumgebung von TouchDesigner eingearbeitet. Den größten Fortschritt erzielten wir jedoch im Selbststudium direkt an der Hardware: Wir haben grundlegendes Wissen über Elektronik erworben und gelernt, wie Spannungen umgewandelt werden, wie Audiosignale sauber fließen und wie man eine stabile Brücke zwischen physischer Sensorik und digitaler Kunst baut.
 
-- task distribution (who did what?)
-Programm und Design Lichtinstallation: Andrin und Len
-Audiotechnik: Jule
-Aufbau und Zusammenstellung: Alle
-Dokumentation und Video: Sara
+5. Tools Used
+Neben der Kernsoftware (TouchDesigner, Adobe Audition, Arduino IDE) kamen während des gesamten Prozesses regelmäßig KI-Tools (wie ChatGPT, Gemini und Claude) zum Einsatz. Wir nutzten sie intensiv als digitale Qualitätskontrolle, um die Korrektheit unserer Schaltungen beim Zusammenbau zu überprüfen, den Code des ESP32 zu reviewen sowie für die Strukturierung, Konzeptausarbeitung und finale Formulierung dieser Dokumentation.
 
-- learning effect
-Alles neu: ziemlich viel gelernt, auch TouchDesigner neu, v.a. am Meisten im Selbststudium gelernt: Technik Stuff und Elektronik (wie funktioniert was und ist wie warum verbunden)
-- tools (AI tools are expressly permitted and desired and should be mentioned)
-Immer mal wieder, zum kontrollieren, obs stimmt und für Konzeptausarbeitung, formulierung und Überarbeiten mit KI.
-- known bugs, if there are any (-1)
-bisher keine Bugs vorhanden
+6. Known Bugs
+Das Gesamtsystem läuft in den Testläufen vollkommen stabil; es sind aktuell keine Bugs vorhanden.
