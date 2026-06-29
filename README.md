@@ -16,14 +16,14 @@ Schritt-für-Schritt-Anleitung für den Aufbau und die Installation, des Wald-WC
 Überprüfe, ob du alle Teile der Materialliste (Komponentenplan\Materialliste.md) beisammen hast, bevor du mit dem Aufbau und der Installation beginnst.
 
 1. Lichtinstallation
-Software vorbereiten: Lade die entsprechende TouchDesigner (TD)-Datei herunter und öffne sie auf dem Laptop.
+Software vorbereiten: Lade die entsprechende TouchDesigner (TD)-Datei (Dateien\Polenta_Project_V4.3.toe) herunter und öffne sie auf dem Laptop.
 
 Stromversorgung verkabeln: Verbinde die LED-Stripes mit dem silbernen Schaltnetzteil (Stromversorgung LED). (s. Bild: Bilder_Aufbauanleitung\Anschluss_LED_Controller.jpeg)
 Worauf zu achten ist: An der Klemmenleiste des Schaltnetzteils liegt an den Anschlüssen (L, N) offene Netzspannung (230V) an. Diese Kontakte müssen im Betrieb unbedingt berührungssicher abgedeckt sein! Schliesse die DC-Ausgänge (V+ und V-) mit ausreichend dicken Kabeln an die Stromadern des LED-Streifens an und stecke das Netzteil erst ein, wenn du alles verbunden hast.
 
 Signalverbindung herstellen: Führe die Datenleitungen des LED-Streifens (beschriftet mit DAT/Data und CLK/Clock) an die grünen Schraubklemmen des LED-Controllers (z. B. Port 1: DAT an DAT, GND an GND).
 
-Inbetriebnahme: Verbinde den LED-Controller per USB-Kabel mit dem Laptop und schliesse ihn an den Strom an. Wähle in TouchDesigner den korrekten COM-Port (bzw. Ausgangs-CHOP/DAT) aus, damit die Pixeldaten korrekt an den Controller übertragen werden und die LEDs grün aufleuchten.
+Inbetriebnahme: Verbinde den LED-Controller per USB-Kabel mit dem Laptop und schliesse ihn an den Strom an. Wähle in TouchDesigner den korrekten COM-Port (bzw. Ausgangs-CHOP/DAT) aus, damit die Pixeldaten korrekt an den Controller übertragen werden und die LEDs grün aufleuchten. Verknüpfe in TD nun die "moviefilein1"-Node mit dem Video (Dateien\Yellow and green abstract color gradient background.mp4) für die grüne LED-Beleuchtung.
 
 2. Audioinstallation
 Lautsprecher vorbereiten: Nimm vier lange (ca. 3 Meter) Abschnitte des Lautsprecherkabels, schneide die Abdichtung an den Enden ab und löte je ein Kabel an die Kontakte eines Lautsprechers.
@@ -39,10 +39,12 @@ Zweites Amp-Modul: Wiederhole die letzten 3 Schritte exakt so für das zweite Am
 
 Wichtiger Hinweis zum Routing: Achte beim Platzieren der Boxen im Raum penibel darauf, welche Boxen am Front- und welche am Rear-Kanal hängen.
 
+Lade nun die Audiodatei (Dateien\WaldWC_mixdown2.wav) herunter und verknüpfe sie in der TD-Datei im Node "Audiofilein1".
+
 3. Bewegungssensor
 Hardware-Setup: Der PiR-Bewegungssensor v1.0 wird mithilfe von Jumper-Kabeln an die Steckplatine (Breadboard) und den ESP32C6-Microcontroller befestigt. (s. Bild: Bilder_Aufbauanleitung\Bewegunssensor_Anschluesse.jpeg)
 
-Firmware aufspielen: Anschliessend den ESP über ein USB-C-Kabel mit dem Laptop verbinden, die Arduino IDE öffnen und das vorbereitete Programm () hineinkopieren und hochladen. Der Microcontroller sendet die Triggersignale bei Bewegung direkt an TouchDesigner, um die Installation zu aktivieren.
+Firmware aufspielen: Anschliessend den ESP über ein USB-C-Kabel mit dem Laptop verbinden, die Arduino IDE-Software öffnen und das vorbereitete Programm (Dateien\Polenta_Sensor_1.ino) hineinkopieren und hochladen. Der Microcontroller sendet die Triggersignale bei Bewegung direkt an TouchDesigner, um die Installation zu aktivieren.
 
 4. Physische Rauminstallation
 Lautsprecher platzieren: Die Boxen werden in je eine Ecke des WCs aufgehängt (zwei vorne für Front, zwei hinten für Rear), um einen umschliessenden Raumklang zu erzeugen.
@@ -58,7 +60,7 @@ Dekoration: Das Ganze wurde mit künstlichem Efeu verziert. Das sorgt für die W
 1. Planning and Development
 Das Projekt begann ursprünglich mit einer völlig anderen Idee: einem digitalen System zum Getränke-Tracking. Während der Konzeptionierung stellten wir jedoch fest, dass ein solches System vor allem den Konsum fördern würde. Da dem Organisationsteam der Polenta Nachhaltigkeit und ein bewusster Umgang sehr wichtig sind, lehnten sie diesen Vorschlag ab und wir suchten nach einer Alternative.
 Bei einem Vorab-Besuch auf dem Gelände der Polenta 7000 fielen uns sofort die dortigen Kompost-WCs aus Holz auf. Das inspirierte uns zu dem Konzept, diese triste Umgebung in ein immersives „Wald-WC“ zu verwandeln. Für die Konzepteinreichung stand zudem die wichtige Bewertungsanforderung im Raum, die Installation interaktiv zu gestalten. So entstand die finale Idee: Das Wald-WC soll ein geschlossenes Ökosystem bilden, das sich erst dann dynamisch aktiviert, wenn die Kabine tatsächlich betreten und benutzt wird.
-Am ersten Testtag bauten wir einen Prototypen auf. Die Lichtinstallation funktionierte auf Anhieb und den Surround-Sound testeten wir zunächst erfolgreich mit grossen, aktiven Studiolautsprechern, die noch keinen Lötaufwand erforderten. Da unsere massgeschneiderten Verstärkerplatinen (Amps) am ersten Tag noch nicht geliefert worden waren, folgte der finale Zusammenbau des gesamten Elektronik-Setups am zweiten Projekttag.
+Am ersten Testtag bauten wir einen Prototypen auf. Die Lichtinstallation funktionierte auf Anhieb (Fotos\Testen_Lichtinstallation.jpeg) und den Surround-Sound testeten wir zunächst erfolgreich mit grossen, aktiven Studiolautsprechern, die noch keinen Lötaufwand erforderten. (Fotos\Test_Audio.jpeg) Da unsere massgeschneiderten Verstärkerplatinen (Amps) am ersten Tag noch nicht geliefert worden waren, folgte der finale Zusammenbau des gesamten Elektronik-Setups am zweiten Projekttag.
 Für das Sounddesign experimentierten wir anfangs mit verschiedenen Programmen wie Ableton Live. Wir entschieden uns letztendlich jedoch für Adobe Audition. Da das Team dieses Programm bereits am besten kannte, uns das Interface sowie der Workflow am eingängigsten erschienen und wir bereits über die entsprechenden Lizenzen verfügten, war dies die effizienteste Wahl. Da unsere Installation über genau vier Lautsprecher verfügt, mischten wir den Ton in einem klassischen 5.1-Setup ab und liessen den Center-Kanal bewusst frei.
 
 2. Challenges and Re-Planning
