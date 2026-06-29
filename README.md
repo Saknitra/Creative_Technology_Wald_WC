@@ -39,7 +39,7 @@ Zweites Amp-Modul: Wiederhole die letzten 3 Schritte exakt so für das zweite Am
 
 Wichtiger Hinweis zum Routing: Achte beim Platzieren der Boxen im Raum penibel darauf, welche Boxen am Front- und welche am Rear-Kanal hängen.
 
-Lade nun die Audiodatei (Dateien\WaldWC_mixdown2.wav) herunter und verknüpfe sie in der TD-Datei im Node "Audiofilein1".
+Lade nun die Audiodatei aus dem Release des Repositories herunter und verknüpfe sie in der TD-Datei im Node "Audiofilein1".
 
 3. Bewegungssensor
 Hardware-Setup: Der PiR-Bewegungssensor v1.0 wird mithilfe von Jumper-Kabeln an die Steckplatine (Breadboard) und den ESP32C6-Microcontroller befestigt. (s. Bild: Bilder_Aufbauanleitung\Bewegunssensor_Anschluesse.jpeg)
